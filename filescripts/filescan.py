@@ -8,6 +8,7 @@ db_file = ''
 now = datetime.now()
 filecount = 0
 
+
 # db_file = "file_names.txt"
 
 # check the input command
@@ -43,15 +44,14 @@ def files(self):
             global filecount
             filecount += 1
         f.close()
-    print('Total file count is : ', filecount)
-
+    print('NUmber of new files : ', filecount)
 
 # main function
 def main():
     check_arg()
     out_file()
     files(path)
-
+    print('Timestamp : ', now.strftime("%m/%d/%Y, %H:%M:%S"))
 
 # Executing Command
 if __name__ == '__main__':
