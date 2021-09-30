@@ -1,11 +1,14 @@
 import sys
 import os
+from datetime import *
 
+# Global Variables
 path = ''
-
+db_file = ''
+now = datetime.now()
+filecount = 0
 
 # db_file = "file_names.txt"
-
 
 # check the input command
 def check_arg():
@@ -37,15 +40,19 @@ def files(self):
             print(item + ' exists in DB file ' + db_file)
         else:
             f.write(item + '\n')
+            global filecount
+            filecount += 1
         f.close()
+    print('Total file count is : ', filecount)
 
 
-# main execution command
+# main function
 def main():
     check_arg()
     out_file()
     files(path)
 
 
+# Executing Command
 if __name__ == '__main__':
     main()
