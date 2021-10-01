@@ -5,7 +5,7 @@ from datetime import *
 # Global Variables
 path = ''
 db_file = ''
-now = datetime.now()
+now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 filecount = 0
 
 
@@ -14,9 +14,9 @@ filecount = 0
 # check the input command
 def check_arg():
     if len(sys.argv) != 2 and len(sys.argv) != 3:
-        print('Script command format is :')
-        print('<python> <filename.py> <directory_path> <out_file>')
-        exit()
+        print('Script command format is :'
+              '\n<python> <filename.py> <directory_path> <out_file>')
+        sys.exit()
     else:
         global path
         path = sys.argv[1].replace('\'' '\"', '', 2)  # removes the '' and "" from the pass in arg
@@ -46,12 +46,14 @@ def files(self):
         f.close()
     print('NUmber of new files : ', filecount)
 
+
 # main function
 def main():
     check_arg()
     out_file()
     files(path)
-    print('Timestamp : ', now.strftime("%m/%d/%Y, %H:%M:%S"))
+    print('Timestamp : ', now)
+
 
 # Executing Command
 if __name__ == '__main__':
