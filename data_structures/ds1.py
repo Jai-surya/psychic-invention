@@ -33,6 +33,16 @@ class LinkedList:
             current = current.next_node
         return count
 
+    def __add__(self, data):
+        """
+        inserts a node at the Head of the linked list
+        :param data:
+        :return:
+        """
+        new_node = Node(data)
+        new_node.next_node = self.head
+        self.head = new_node
+
 
 N1 = Node(10)
 print(N1)
@@ -40,3 +50,7 @@ N2 = Node(32)
 print(N2)
 N1.next_node = N2
 print(N1.next_node)
+
+l = LinkedList()
+l.head = N1
+print(l.size())
