@@ -33,9 +33,10 @@ class LinkedList:
             current = current.next_node
         return count
 
-    def __add__(self, data):
+    def add(self, data):
         """
         inserts a node at the Head of the linked list
+        Takes O(n) time
         :param data:
         :return:
         """
@@ -43,14 +44,40 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
+    def __repr__(self):
+        nodes = []
+        current = self.head
 
-N1 = Node(10)
-print(N1)
-N2 = Node(32)
-print(N2)
-N1.next_node = N2
-print(N1.next_node)
+        while current:
+            if current is self.head:
+                nodes.append("[Head : %s]" % current.data)
+            elif current.next_node is None:
+                nodes.append("[Tail : %s]" % current.data)
+            else:
+                nodes.append("[%s]" % current.data)
+
+            current = current.next_node
+        return '-> '.join(nodes)
+        # return str(nodes)
+
+
+# N1 = Node(10)
+# print(N1)
+# N2 = Node(32)
+# print(N2)
+# N1.next_node = N2
+# print(N1.next_node)
+#
+# l = LinkedList()
+# l.head = N1
+# print(l.size())
+
 
 l = LinkedList()
-l.head = N1
+l.add(1)
+l.add(3)
+l.add(5)
+l.add(8)
+
 print(l.size())
+print(l)
